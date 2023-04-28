@@ -21,7 +21,7 @@ npm i react-image-accordion
 To use the component in your React application, import it and pass the necessary props:
 
 ```jsx
-import ImageAccordion from 'react-image-accordion';
+import ReactImageAccordion from 'react-image-accordion';
 
 function MyComponent() {
   const accordionData = [
@@ -69,7 +69,7 @@ function MyComponent() {
 
   return (
   <ReactImageAccordion
-          accordionData: {accordionData}
+          accordionData={accordionData}
     />
   );
 }
@@ -106,8 +106,8 @@ export const test = () => {
 
 
 ***
-## CodeSandBox Sample
-
+## StoryBook Sample
+[StoryBook]https://react-image-accordion.netlify.app/
 
 
 ## Contributing

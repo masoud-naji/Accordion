@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import MockAccordion from "../../stories/MockAccordion.json";
 
-function UseImageAccordion({accordionData}) {
+function UseImageAccordion({ accordionData }) {
   const [activePanel, setActivePanel] = useState(null);
 
   function toggleAccordion(panelToActivate) {
