@@ -1,44 +1,79 @@
-# JSON pretty Textarea
+# React Image Accordion
 
-JSON pretty Textareais a React library for dealing with json files and showing them on textarea.
+A simple and customizable React component that creates an image accordion with smooth animation, inspired by Kevin Powell's tutorial on [YouTube](https://www.youtube.com/watch?v=WJERnXiFFug&t=0s&ab_channel=KevinPowell).
 
+The image accordion is a modern design pattern that can be used to display images and accompanying information in an interactive and engaging way. This component makes it easy to incorporate this pattern into your React projects.
 
 
 ## Installation
 
-Use the package manager [npm](https://www.npmjs.com/) to install json-pretty-textarea.
+Use the package manager [npm](https://www.npmjs.com/) to install react-image-accordion.
 
 ```bash
-npm i json-pretty-textarea
+npm i react-image-accordion
 ```
+
 
 
 
 ## Usage
 
-```React
-# import 
-import { JsonPrettierTextarea } from "json-pretty-textarea";
-```
-```React
-# return
- <JsonPrettierTextarea
-              prettyjson={MockDocument}
-              preBcl="white"
-              stringCl="blue"
-              numberCl="blue"
-              booleanCl="red"
-              nullCl="violet"
-              keyCl="red"
-              string_font_size="1rem"
-              number_font_size="1rem"
-              boolean_font_size="1rem"
-              null_font_size="1rem"
-              key_font_size="1rem"
-              height="300px"
-              width="300px"
-              borderRadius="10px"
-            />
+To use the component in your React application, import it and pass the necessary props:
+
+```jsx
+import ImageAccordion from 'react-image-accordion';
+
+function MyComponent() {
+  const accordionData = [
+    {
+      id: 1,
+      title: "Boating",
+      image: "https://picsum.photos/400/600",
+      alt: "first panel image",
+      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
+      svg: "aa (1).svg",
+    },
+    {
+      id: 2,
+      title: "Fishing",
+      image: "https://picsum.photos/400/600",
+      alt: "second panel image",
+      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
+      svg: "aa (2).svg",
+    },
+    {
+      id: 3,
+      title: "Swimming",
+      image: "https://picsum.photos/400/600",
+      alt: "third panel image",
+      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
+      svg: "aa (3).svg",
+    },
+    {
+      id: 4,
+      title: "Kayaking",
+      image: "https://picsum.photos/400/600",
+      alt: "fourth panel image",
+      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
+      svg: "aa (4).svg",
+    },
+    {
+      id: 5,
+      title: "Scuba diving",
+      image: "https://picsum.photos/400/600",
+      alt: "fifth panel image",
+      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
+      svg: "aa (5).svg",
+    },
+  ];
+
+  return (
+  <ReactImageAccordion
+          accordionData: {accordionData}
+    />
+  );
+}
+
 ```
 ---
 
@@ -51,47 +86,20 @@ import { JsonPrettierTextarea } from "json-pretty-textarea";
 
 |    Property      |     type      |  Default   |       Description       |
 | ---------------- |:-------------:|:----------:|:-----------------------:|
-| prettyjson       | json data     |MockDocument|    Source File json     |
-| preBcl           |       CSS     |    white   |Textarea BackGround color|
-| stringCl         |       CSS     |    green   |   String Values color   |
-| numberCl         |       CSS     | darkorange |   number Values color   |
-| booleanCl        |       CSS     |     blue   |   boolean Values color  |
-| nullCl           |       CSS     |   magenta  |   null Values color     |
-| keyCl            |       CSS     |     red    |      key Values color   |
-| string_font_size |       CSS     |     1rem   |       font_size         |
-| number_font_size |       CSS     |     1rem   |        font_size        |
-| boolean_font_size|       CSS     |     1rem   |        font_size        |
-| null_font_size   |       CSS     |     1rem   |        font_size        |
-| key_font_size    |       CSS     |     1rem   |        font_size        |
-| height           |       CSS     |     100%   |    textarea height      |
-| width            |       CSS     |     100%   |    textarea width       |
-| borderRadius     |       CSS     |   0.5rem   |    border radius        |
+| accordionData    | json data     |  json file |    Source File json     |
+
 
 
 
 ## Sample Code
 ```React Code
 import MockDocument from "./MOCK_DATA.json";
-import { JsonPrettierTextarea } from "json-pretty-textarea";
+import { ReactImageAccordion } from "json-pretty-textarea";
 export const test = () => {
   return (
-  <JsonPrettierTextarea
-              prettyjson={MockDocument}
-              preBcl="white"
-              stringCl="green"
-              numberCl="skyblue"
-              booleanCl="orange"
-              nullCl="violet"
-              keyCl="black"
-              string_font_size="1rem"
-              number_font_size="1rem"
-              boolean_font_size="1rem"
-              null_font_size="1rem"
-              key_font_size="1.2rem"
-              height="500px"
-              width="800px"
-              borderRadius="10px"
-            />
+  <ReactImageAccordion
+          accordionData: {MockAccordion}
+    />
   );
 };
 ```
@@ -99,7 +107,7 @@ export const test = () => {
 
 ***
 ## CodeSandBox Sample
-[json-pretty-textarea]https://codesandbox.io/s/json-pretty-textarea-qus7dk
+
 
 
 ## Contributing
