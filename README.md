@@ -21,7 +21,7 @@ npm i react-image-accordion
 To use the component in your React application, import it and pass the necessary props:
 
 ```jsx
-import ImageAccordion from 'react-image-accordion';
+import ReactImageAccordion from 'react-image-accordion';
 
 function MyComponent() {
   const accordionData = [
