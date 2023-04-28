@@ -2,11 +2,11 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var React$1 = require('react');
+var React = require('react');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var React__default = /*#__PURE__*/_interopDefaultLegacy(React$1);
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -41,7 +41,7 @@ styleInject(css_248z);
 function UseImageAccordion({
   accordionData
 }) {
-  const [activePanel, setActivePanel] = React$1.useState(null);
+  const [activePanel, setActivePanel] = React.useState(null);
   function toggleAccordion(panelToActivate) {
     setActivePanel(prevPanel => {
       if (prevPanel === panelToActivate) {
@@ -51,40 +51,40 @@ function UseImageAccordion({
       }
     });
   }
-  React$1.useEffect(() => {
+  React.useEffect(() => {
     setActivePanel(accordionData[0].id);
   }, []);
   if (!accordionData) return null;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "wrapper"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "accordion"
-  }, accordionData.map(item => /*#__PURE__*/React.createElement("div", {
+  }, accordionData.map(item => /*#__PURE__*/React__default["default"].createElement("div", {
     key: item.id,
     className: "accordion-panel",
     onClick: () => toggleAccordion(item.id)
-  }, /*#__PURE__*/React.createElement("h2", {
+  }, /*#__PURE__*/React__default["default"].createElement("h2", {
     id: item.id
-  }, /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React__default["default"].createElement("button", {
     type: "button",
     className: "accordion-trigger",
     "aria-controls": "panel1-content",
     "aria-expanded": activePanel === item.id
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React__default["default"].createElement("span", {
     className: "accordion-title",
     id: item.id
-  }, "Boating"), /*#__PURE__*/React.createElement("svg", {
+  }, "Boating"), /*#__PURE__*/React__default["default"].createElement("svg", {
     "aria-hidden": "true",
     className: "accordion-icon"
-  }, /*#__PURE__*/React.createElement("image", {
+  }, /*#__PURE__*/React__default["default"].createElement("image", {
     href: item.svg
-  })))), /*#__PURE__*/React.createElement("div", {
+  })))), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "accordion-content",
     id: item.id,
     "aria-labelledby": item.id,
     "aria-hidden": activePanel !== item.id,
     role: "region"
-  }, /*#__PURE__*/React.createElement("p", null, item.content), /*#__PURE__*/React.createElement("img", {
+  }, /*#__PURE__*/React__default["default"].createElement("p", null, item.content), /*#__PURE__*/React__default["default"].createElement("img", {
     className: "accordion-image",
     src: item.image,
     alt: item.alt

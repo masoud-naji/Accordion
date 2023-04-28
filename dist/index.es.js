@@ -1,4 +1,4 @@
-import React$1, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -86,7 +86,7 @@ function UseImageAccordion({
 const ReactImageAccordion = ({
   accordionData
 }) => {
-  return /*#__PURE__*/React$1.createElement(UseImageAccordion, {
+  return /*#__PURE__*/React.createElement(UseImageAccordion, {
     accordionData: accordionData
   });
 };
