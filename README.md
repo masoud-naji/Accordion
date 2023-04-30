@@ -100,9 +100,9 @@ import { ReactImageAccordion } from "json-pretty-textarea";
 export const test = () => {
   return (
   <ReactImageAccordion
-          accordionData: {MockAccordion}
-          AccordionWidth: "40rem",
-          AccordionHeight: "30rem",
+          accordionData= {MockAccordion}
+          AccordionWidth= "40rem",
+          AccordionHeight= "30rem",
     />
   );
 };
