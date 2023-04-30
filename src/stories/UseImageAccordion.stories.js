@@ -12,4 +12,6 @@ const Template = (args) => <ReactImageAccordion {...args} />;
 export const App = Template.bind({});
 App.args = {
   accordionData: MockAccordion,
+  AccordionWidth: "40rem",
+  AccordionHeight: "30rem",
 };

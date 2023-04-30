@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
-function UseImageAccordion({ accordionData }) {
+function UseImageAccordion({ accordionData, AccordionWidth, AccordionHeight }) {
   const [activePanel, setActivePanel] = useState(null);
 
   function toggleAccordion(panelToActivate) {
@@ -21,8 +21,8 @@ function UseImageAccordion({ accordionData }) {
   if (!accordionData) return null;
   return (
     <>
-      <div className="wrapper">
-        <div className="accordion">
+      <div className="wrapper" style={{ width: AccordionWidth }}>
+        <div className="accordion" style={{ height: AccordionHeight }}>
           {accordionData.map((item) => (
             <div
               key={item.id}
