@@ -2,7 +2,7 @@
   {
     "title": "Boating",
     "id": 1,
-    "image": "https://picsum.photos/400/600",
+    "image": "https://picsum.photos/400/601",
     "alt": "first panel image",
     "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
     "svg": "aa (1).svg"
@@ -10,7 +10,7 @@
   {
     "title": "Fishing",
     "id": 2,
-    "image": "https://picsum.photos/400/600",
+    "image": "https://picsum.photos/400/602",
     "alt": "second panel image",
     "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
     "svg": "aa (2).svg"
@@ -18,7 +18,7 @@
   {
     "title": "Swimming",
     "id": 3,
-    "image": "https://picsum.photos/400/600",
+    "image": "https://picsum.photos/401/600",
     "alt": "third panel image",
     "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
     "svg": "aa (3).svg"
@@ -26,7 +26,7 @@
   {
     "title": "Kayaking",
     "id": 4,
-    "image": "https://picsum.photos/400/600",
+    "image": "https://picsum.photos/402/600",
     "alt": "fourth panel image",
     "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
     "svg": "aa (4).svg"
@@ -34,7 +34,7 @@
   {
     "title": "Scuba diving",
     "id": 5,
-    "image": "https://picsum.photos/400/600",
+    "image": "https://picsum.photos/401/601",
     "alt": "fifth panel image",
     "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
     "svg": "aa (5).svg"

@@ -35,11 +35,13 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "*,\r\n*::before,\r\n*::after {\r\n  box-sizing: border-box;\r\n}\r\n\r\nhtml {\r\n  color-scheme: dark;\r\n}\r\n\r\nbody {\r\n  display: grid;\r\n  justify-content: center;\r\n  align-content: center;\r\n  min-height: 100vh;\r\n\r\n  margin: 0;\r\n  font-family: system-ui;\r\n  font-size: 1.125rem;\r\n  line-height: 1.6;\r\n}\r\n\r\nimg {\r\n  max-width: 100%;\r\n  display: block;\r\n}\r\n\r\n.wrapper {\r\n  max-width: 50rem;\r\n  margin-inline: auto;\r\n  padding-inline: 1rem;\r\n}\r\n\r\n.accordion {\r\n  --_button-size: 3rem;\r\n  --_panel-padding: 0.75rem;\r\n  --_panel-gap: 1rem;\r\n\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 1rem;\r\n}\r\n\r\n@media (min-width: 45em) {\r\n  .accordion {\r\n    flex-direction: row;\r\n    height: 30rem;\r\n  }\r\n}\r\n\r\n.accordion * {\r\n  margin: 0;\r\n}\r\n\r\n.accordion-panel {\r\n  position: relative;\r\n  isolation: isolate;\r\n  flex-basis: calc((var(--_panel-padding) * 2) + var(--_button-size));\r\n  overflow: hidden;\r\n  padding: var(--_panel-padding);\r\n  padding-right: calc(var(--_panel-padding) * 4);\r\n  border-radius: calc(((var(--_panel-padding) * 2) + var(--_button-size)) / 2);\r\n  cursor: pointer;\r\n}\r\n\r\n@media (prefers-reduced-motion: no-preference) {\r\n  .accordion-panel {\r\n    transition: flex-basis 500ms, flex-grow 500ms;\r\n  }\r\n}\r\n\r\n.accordion-panel:nth-child(1) {\r\n  --_panel-color: red;\r\n}\r\n.accordion-panel:nth-child(2) {\r\n  --_panel-color: blue;\r\n}\r\n.accordion-panel:nth-child(3) {\r\n  --_panel-color: green;\r\n}\r\n.accordion-panel:nth-child(4) {\r\n  --_panel-color: yellow;\r\n}\r\n.accordion-panel:nth-child(5) {\r\n  --_panel-color: orange;\r\n}\r\n.accordion-panel:nth-child(6) {\r\n  --_panel-color: purple;\r\n}\r\n.accordion-panel:nth-child(7) {\r\n  --_panel-color: pink;\r\n}\r\n.accordion-panel:nth-child(8) {\r\n  --_panel-color: brown;\r\n}\r\n.accordion-panel:nth-child(9) {\r\n  --_panel-color: cyan;\r\n}\r\n.accordion-panel:nth-child(10) {\r\n  --_panel-color: magenta;\r\n}\r\n\r\n.accordion-panel:has([aria-expanded=\"true\"]) {\r\n  flex-basis: clamp(15rem, 40vh, 20rem);\r\n  flex-grow: 1;\r\n}\r\n\r\n.accordion-trigger {\r\n  outline: 0 !important;\r\n}\r\n\r\n.accordion-panel:focus-within {\r\n  outline: 3px solid var(--_panel-color);\r\n  outline-offset: 4px;\r\n}\r\n\r\n.accordion-content > p {\r\n  transform: translateY(2rem);\r\n  opacity: 0;\r\n  margin-left: calc(var(--_button-size) + var(--_panel-gap));\r\n}\r\n\r\n@media (prefers-reduced-motion: no-preference) {\r\n  .accordion-panel:has([aria-expanded=\"true\"]) .accordion-content > p {\r\n    transition: transform 500ms 500ms, opacity 500ms 500ms;\r\n  }\r\n}\r\n\r\n.accordion-panel:has([aria-expanded=\"true\"]) .accordion-content > p {\r\n  transform: translateY(0);\r\n  opacity: 1;\r\n}\r\n\r\n.accordion-title {\r\n  font-size: 1.5rem;\r\n  font-weight: 700;\r\n  position: relative;\r\n  isolation: isolate;\r\n  display: grid;\r\n  align-items: center;\r\n}\r\n\r\n@media (max-width: 44.999em) {\r\n  .accordion-title::after {\r\n    content: \"\";\r\n    position: absolute;\r\n\r\n    left: calc((var(--_panel-gap) + var(--_button-size)) * -1);\r\n    width: calc(100% + (var(--_button-size) * 2));\r\n    height: var(--_button-size);\r\n    background: hsl(0 0% 0% /0.55);\r\n    z-index: -1;\r\n    border-radius: 100vw;\r\n  }\r\n}\r\n\r\n.accordion-image {\r\n  position: absolute;\r\n  inset: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  object-fit: cover;\r\n  z-index: -1;\r\n  transition: filer 500ms;\r\n}\r\n\r\n.accordion-panel:has([aria-expanded=\"true\"]) .accordion-image {\r\n  filter: brightness(0.5);\r\n}\r\n.accordion-trigger {\r\n  display: flex;\r\n  align-items: center;\r\n  flex-direction: row-reverse;\r\n  gap: var(--_panel-gap);\r\n  background: transparent;\r\n  border: 0;\r\n  padding: 0;\r\n}\r\n.accordion-icon {\r\n  fill: var(--_panel-color);\r\n  background: hsl(0 0% 0% /0.55);\r\n  width: var(--_button-size);\r\n  aspect-ratio: 1/1;\r\n  padding: 0.75rem;\r\n  border-radius: 50%;\r\n  z-index: 10;\r\n}\r\n";
+var css_248z = "*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n\nhtml {\n  color-scheme: dark;\n}\n\nbody {\n  display: grid;\n  justify-content: center;\n  align-content: center;\n  min-height: 100vh;\n\n  margin: 0;\n  font-family: system-ui;\n  font-size: 1.125rem;\n  line-height: 1.6;\n}\n\nimg {\n  max-width: 100%;\n  display: block;\n}\n\n.wrapper {\n  /* max-width: 50rem; */\n  margin-inline: auto;\n  padding-inline: 1rem;\n}\n\n.accordion {\n  --_button-size: 3rem;\n  --_panel-padding: 0.75rem;\n  --_panel-gap: 1rem;\n\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n@media (min-width: 45em) {\n  .accordion {\n    flex-direction: row;\n    /* height: 30rem; */\n  }\n}\n\n.accordion * {\n  margin: 0;\n}\n\n.accordion-panel {\n  position: relative;\n  isolation: isolate;\n  flex-basis: calc((var(--_panel-padding) * 2) + var(--_button-size));\n  overflow: hidden;\n  padding: var(--_panel-padding);\n  padding-right: calc(var(--_panel-padding) * 4);\n  border-radius: calc(((var(--_panel-padding) * 2) + var(--_button-size)) / 2);\n  cursor: pointer;\n}\n\n@media (prefers-reduced-motion: no-preference) {\n  .accordion-panel {\n    transition: flex-basis 500ms, flex-grow 500ms;\n  }\n}\n\n.accordion-panel:nth-child(1) {\n  --_panel-color: red;\n}\n.accordion-panel:nth-child(2) {\n  --_panel-color: blue;\n}\n.accordion-panel:nth-child(3) {\n  --_panel-color: green;\n}\n.accordion-panel:nth-child(4) {\n  --_panel-color: yellow;\n}\n.accordion-panel:nth-child(5) {\n  --_panel-color: orange;\n}\n.accordion-panel:nth-child(6) {\n  --_panel-color: purple;\n}\n.accordion-panel:nth-child(7) {\n  --_panel-color: pink;\n}\n.accordion-panel:nth-child(8) {\n  --_panel-color: brown;\n}\n.accordion-panel:nth-child(9) {\n  --_panel-color: cyan;\n}\n.accordion-panel:nth-child(10) {\n  --_panel-color: magenta;\n}\n\n.accordion-panel:has([aria-expanded=\"true\"]) {\n  flex-basis: clamp(15rem, 40vh, 20rem);\n  flex-grow: 1;\n}\n\n.accordion-trigger {\n  outline: 0 !important;\n}\n\n.accordion-panel:focus-within {\n  outline: 3px solid var(--_panel-color);\n  outline-offset: 4px;\n}\n\n.accordion-content > p {\n  transform: translateY(2rem);\n  opacity: 0;\n  margin-left: calc(var(--_button-size) + var(--_panel-gap));\n}\n\n@media (prefers-reduced-motion: no-preference) {\n  .accordion-panel:has([aria-expanded=\"true\"]) .accordion-content > p {\n    transition: transform 500ms 500ms, opacity 500ms 500ms;\n  }\n}\n\n.accordion-panel:has([aria-expanded=\"true\"]) .accordion-content > p {\n  transform: translateY(0);\n  opacity: 1;\n}\n\n.accordion-title {\n  font-size: 1.5rem;\n  font-weight: 700;\n  position: relative;\n  isolation: isolate;\n  display: grid;\n  align-items: center;\n}\n\n@media (max-width: 44.999em) {\n  .accordion-title::after {\n    content: \"\";\n    position: absolute;\n\n    left: calc((var(--_panel-gap) + var(--_button-size)) * -1);\n    width: calc(100% + (var(--_button-size) * 2));\n    height: var(--_button-size);\n    background: hsl(0 0% 0% /0.55);\n    z-index: -1;\n    border-radius: 100vw;\n  }\n}\n\n.accordion-image {\n  position: absolute;\n  inset: 0;\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  z-index: -1;\n  transition: filer 500ms;\n}\n\n.accordion-panel:has([aria-expanded=\"true\"]) .accordion-image {\n  filter: brightness(0.5);\n}\n.accordion-trigger {\n  display: flex;\n  align-items: center;\n  flex-direction: row-reverse;\n  gap: var(--_panel-gap);\n  background: transparent;\n  border: 0;\n  padding: 0;\n}\n.accordion-icon {\n  fill: var(--_panel-color);\n  background: hsl(0 0% 0% /0.55);\n  width: var(--_button-size);\n  aspect-ratio: 1/1;\n  padding: 0.75rem;\n  border-radius: 50%;\n  z-index: 10;\n}\n";
 styleInject(css_248z);
 
 function UseImageAccordion({
-  accordionData
+  accordionData,
+  AccordionWidth,
+  AccordionHeight
 }) {
   const [activePanel, setActivePanel] = React.useState(null);
   function toggleAccordion(panelToActivate) {
@@ -56,9 +58,15 @@ function UseImageAccordion({
   }, []);
   if (!accordionData) return null;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "wrapper"
+    className: "wrapper",
+    style: {
+      width: AccordionWidth
+    }
   }, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "accordion"
+    className: "accordion",
+    style: {
+      height: AccordionHeight
+    }
   }, accordionData.map(item => /*#__PURE__*/React__default["default"].createElement("div", {
     key: item.id,
     className: "accordion-panel",
@@ -92,10 +100,14 @@ function UseImageAccordion({
 }
 
 const ReactImageAccordion = ({
-  accordionData
+  accordionData,
+  AccordionWidth,
+  AccordionHeight
 }) => {
   return /*#__PURE__*/React__default["default"].createElement(UseImageAccordion, {
-    accordionData: accordionData
+    accordionData: accordionData,
+    AccordionWidth: AccordionWidth,
+    AccordionHeight: AccordionHeight
   });
 };
 

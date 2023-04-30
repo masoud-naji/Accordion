@@ -21,7 +21,7 @@ npm i react-image-accordion
 To use the component in your React application, import it and pass the necessary props:
 
 ```jsx
-import ReactImageAccordion from 'react-image-accordion';
+import {ReactImageAccordion} from 'react-image-accordion';
 
 function MyComponent() {
   const accordionData = [
@@ -69,7 +69,9 @@ function MyComponent() {
 
   return (
   <ReactImageAccordion
-          accordionData={accordionData}
+      accordionData={accordionData}
+      AccordionWidth={AccordionWidth}
+      AccordionHeight={AccordionHeight}
     />
   );
 }
@@ -87,8 +89,8 @@ function MyComponent() {
 |    Property      |     type      |  Default   |       Description       |
 | ---------------- |:-------------:|:----------:|:-----------------------:|
 | accordionData    | json data     |  json file |    Source File json     |
-
-
+| AccordionWidth   | css           |  50rem     |    Accordion Width      |
+| AccordionHeight  | css           |  30rem     |    Accordion Height     |
 
 
 ## Sample Code
@@ -99,6 +101,8 @@ export const test = () => {
   return (
   <ReactImageAccordion
           accordionData: {MockAccordion}
+          AccordionWidth: "40rem",
+          AccordionHeight: "30rem",
     />
   );
 };
