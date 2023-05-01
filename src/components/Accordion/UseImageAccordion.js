@@ -37,7 +37,7 @@ function UseImageAccordion({ accordionData }) {
                   aria-expanded={activePanel === item.id}
                 >
                   <span className="accordion-title" id={item.id}>
-                    Boating
+                    {item.title}
                   </span>
                   <svg aria-hidden="true" className="accordion-icon">
                     <image href={item.svg}></image>

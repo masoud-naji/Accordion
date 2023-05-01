@@ -65,7 +65,7 @@ function UseImageAccordion({
   }, /*#__PURE__*/React.createElement("span", {
     className: "accordion-title",
     id: item.id
-  }, "Boating"), /*#__PURE__*/React.createElement("svg", {
+  }, item.title), /*#__PURE__*/React.createElement("svg", {
     "aria-hidden": "true",
     className: "accordion-icon"
   }, /*#__PURE__*/React.createElement("image", {
