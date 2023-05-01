@@ -72,6 +72,7 @@ function MyComponent() {
       accordionData={accordionData}
       AccordionWidth={AccordionWidth}
       AccordionHeight={AccordionHeight}
+      ContentSize=[ContentSize]
     />
   );
 }
@@ -89,9 +90,29 @@ function MyComponent() {
 |    Property      |     type      |  Default   |       Description       |
 | ---------------- |:-------------:|:----------:|:-----------------------:|
 | accordionData    | json data     |  json file |    Source File json     |
-| AccordionWidth   | css           |  50rem     |    Accordion Width      |
-| AccordionHeight  | css           |  30rem     |    Accordion Height     |
+| AccordionWidth   | css  /optional|  50rem     |    Accordion Width      |
+| AccordionHeight  | css  /optional|  30rem     |    Accordion Height     |
+| ContentSize      |Array /optional|[0,1,2,3,4]*|    Content font size    |
 
+
+*[0,1,2,3,4]
+```
+"@media (max-width: 480px)": {
+  fontSize: ContentSize[0] || "0.65rem",
+},
+"@media (min-width: 481px) and (max-width: 768px)": {
+  fontSize: ContentSize[1] || "0.8rem",
+},
+"@media (min-width: 769px) and (max-width: 1024px)": {
+  fontSize: ContentSize[2] || "1rem",
+},
+"@media (min-width: 1025px) and (max-width: 1200px)": {
+  fontSize: ContentSize[3] || "1.2rem",
+},
+"@media (min-width: 1201px)": {
+  fontSize: ContentSize[4] || "1.5rem",
+},
+```
 
 ## Sample Code
 ```React Code
@@ -100,9 +121,10 @@ import { ReactImageAccordion } from "json-pretty-textarea";
 export const test = () => {
   return (
   <ReactImageAccordion
-          accordionData= {MockAccordion}
-          AccordionWidth= "40rem",
-          AccordionHeight= "30rem",
+      accordionData= {MockAccordion}
+      AccordionWidth= "40rem"
+      AccordionHeight= "30rem"
+      ContentSize= ["1rem", "1.2rem", "1.5rem", "1.8rem", "2rem"]
     />
   );
 };

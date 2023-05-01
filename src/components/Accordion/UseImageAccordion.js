@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
-function UseImageAccordion({ accordionData, AccordionWidth, AccordionHeight }) {
+function UseImageAccordion({
+  accordionData,
+  AccordionWidth,
+  AccordionHeight,
+  ContentSize,
+}) {
   const [activePanel, setActivePanel] = useState(null);
+  const ContentSizeFont = ContentSize || [];
 
   function toggleAccordion(panelToActivate) {
     setActivePanel((prevPanel) => {
@@ -14,6 +20,40 @@ function UseImageAccordion({ accordionData, AccordionWidth, AccordionHeight }) {
     });
   }
 
+  const HeightStyle = `
+     @media (min-width: 480px) {
+      .AccHeight {
+        height: ${AccordionHeight};
+      }
+    }`;
+
+  const css = `
+    @media (max-width: 480px) {
+      .ContentSize {
+        font-size: ${ContentSizeFont[0] || "0.65rem"};
+      }
+    }
+    @media (min-width: 481px) and (max-width: 768px) {
+      .ContentSize {
+        font-size: ${ContentSizeFont[1] || "0.8rem"};
+      }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .ContentSize {
+        font-size: ${ContentSizeFont[2] || "1rem"};
+      }
+    }
+    @media (min-width: 1025px) and (max-width: 1200px) {
+      .ContentSize {
+        font-size: ${ContentSizeFont[3] || "1.2rem"};
+      }
+    }
+    @media (min-width: 1201px) {
+      .ContentSize {
+        font-size: ${ContentSizeFont[4] || "1.5rem"};
+      }
+    }`;
+
   useEffect(() => {
     setActivePanel(accordionData[0].id);
   }, []);
@@ -22,7 +62,8 @@ function UseImageAccordion({ accordionData, AccordionWidth, AccordionHeight }) {
   return (
     <>
       <div className="wrapper" style={{ width: AccordionWidth }}>
-        <div className="accordion" style={{ height: AccordionHeight }}>
+        <style scoped>{HeightStyle}</style>
+        <div className="accordion AccHeight">
           {accordionData.map((item) => (
             <div
               key={item.id}
@@ -39,13 +80,18 @@ function UseImageAccordion({ accordionData, AccordionWidth, AccordionHeight }) {
                   <span className="accordion-title" id={item.id}>
                     {item.title}
                   </span>
-                  <svg aria-hidden="true" className="accordion-icon">
+                  <svg
+                    aria-hidden="true"
+                    className="accordion-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                     <image href={item.svg}></image>
                   </svg>
                 </button>
               </h2>
+              <style scoped>{css}</style>
               <div
-                className="accordion-content"
+                className="accordion-content ContentSize"
                 id={item.id}
                 aria-labelledby={item.id}
                 aria-hidden={activePanel !== item.id}

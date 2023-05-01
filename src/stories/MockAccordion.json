@@ -5,7 +5,7 @@
     "image": "https://picsum.photos/400/601",
     "alt": "first panel image",
     "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
-    "svg": "aa (1).svg"
+    "svg": "../svg/gui-regex-svgrepo-com.svg"
   },
   {
     "title": "Fishing",
@@ -13,7 +13,7 @@
     "image": "https://picsum.photos/400/602",
     "alt": "second panel image",
     "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
-    "svg": "aa (2).svg"
+    "svg": "../svg/document-check-svgrepo-com.svg"
   },
   {
     "title": "Swimming",
@@ -21,7 +21,7 @@
     "image": "https://picsum.photos/401/600",
     "alt": "third panel image",
     "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
-    "svg": "aa (3).svg"
+    "svg": "../svg/twitter-social-tweet-svgrepo-com.svg"
   },
   {
     "title": "Kayaking",
@@ -29,7 +29,7 @@
     "image": "https://picsum.photos/402/600",
     "alt": "fourth panel image",
     "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
-    "svg": "aa (4).svg"
+    "svg": "../svg/compare-svgrepo-com.svg"
   },
   {
     "title": "Scuba diving",
@@ -37,6 +37,30 @@
     "image": "https://picsum.photos/401/601",
     "alt": "fifth panel image",
     "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
-    "svg": "aa (5).svg"
+    "svg": "../svg/image-svgrepo-com.svg"
+  },
+  {
+    "title": "Scuba diving",
+    "id": 6,
+    "image": "https://picsum.photos/401/602",
+    "alt": "fifth panel image",
+    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
+    "svg": "../svg/bitcoin-svgrepo-com.svg"
+  },
+  {
+    "title": "Scuba diving",
+    "id": 7,
+    "image": "https://picsum.photos/402/602",
+    "alt": "fifth panel image",
+    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
+    "svg": "../svg/chrome-svgrepo-com.svg"
+  },
+  {
+    "title": "Scuba diving",
+    "id": 8,
+    "image": "https://picsum.photos/399/599",
+    "alt": "fifth panel image",
+    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
+    "svg": "../svg/npm-svgrepo-com.svg"
   }
 ]

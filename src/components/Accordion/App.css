@@ -44,7 +44,7 @@ img {
 @media (min-width: 45em) {
   .accordion {
     flex-direction: row;
-    /* height: 30rem; */
+    height: 30rem;
   }
 }
 
@@ -138,6 +138,10 @@ img {
   isolation: isolate;
   display: grid;
   align-items: center;
+}
+
+.accordion-panel:has([aria-expanded="false"]) .accordion-title {
+  display: none;
 }
 
 @media (max-width: 44.999em) {
