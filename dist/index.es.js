@@ -37,6 +37,7 @@ function UseImageAccordion({
   ContentSize
 }) {
   const [activePanel, setActivePanel] = useState(null);
+  const ContentSizeFont = ContentSize || [];
   function toggleAccordion(panelToActivate) {
     setActivePanel(prevPanel => {
       if (prevPanel === panelToActivate) {
@@ -46,28 +47,38 @@ function UseImageAccordion({
       }
     });
   }
-  const HeightStyle = {
-    "@media (max-width: 480px)": {
-      height: AccordionHeight
+  const HeightStyle = `
+     @media (min-width: 480px) {
+      .AccHeight {
+        height: ${AccordionHeight};
+      }
+    }`;
+  const css = `
+    @media (max-width: 480px) {
+      .ContentSize {
+        font-size: ${ContentSizeFont[0] || "0.65rem"};
+      }
     }
-  };
-  const ContentStyle = {
-    "@media (max-width: 480px)": {
-      fontSize: ContentSize[0] || "0.65rem"
-    },
-    "@media (min-width: 481px) and (max-width: 768px)": {
-      fontSize: ContentSize[1] || "0.8rem"
-    },
-    "@media (min-width: 769px) and (max-width: 1024px)": {
-      fontSize: ContentSize[2] || "1rem"
-    },
-    "@media (min-width: 1025px) and (max-width: 1200px)": {
-      fontSize: ContentSize[3] || "1.2rem"
-    },
-    "@media (min-width: 1201px)": {
-      fontSize: ContentSize[4] || "1.5rem"
+    @media (min-width: 481px) and (max-width: 768px) {
+      .ContentSize {
+        font-size: ${ContentSizeFont[1] || "0.8rem"};
+      }
     }
-  };
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .ContentSize {
+        font-size: ${ContentSizeFont[2] || "1rem"};
+      }
+    }
+    @media (min-width: 1025px) and (max-width: 1200px) {
+      .ContentSize {
+        font-size: ${ContentSizeFont[3] || "1.2rem"};
+      }
+    }
+    @media (min-width: 1201px) {
+      .ContentSize {
+        font-size: ${ContentSizeFont[4] || "1.5rem"};
+      }
+    }`;
   useEffect(() => {
     setActivePanel(accordionData[0].id);
   }, []);
@@ -77,9 +88,10 @@ function UseImageAccordion({
     style: {
       width: AccordionWidth
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "accordion",
-    style: HeightStyle
+  }, /*#__PURE__*/React.createElement("style", {
+    scoped: true
+  }, HeightStyle), /*#__PURE__*/React.createElement("div", {
+    className: "accordion AccHeight"
   }, accordionData.map(item => /*#__PURE__*/React.createElement("div", {
     key: item.id,
     className: "accordion-panel",
@@ -100,16 +112,15 @@ function UseImageAccordion({
     xmlns: "http://www.w3.org/2000/svg"
   }, /*#__PURE__*/React.createElement("image", {
     href: item.svg
-  })))), /*#__PURE__*/React.createElement("div", {
-    className: "accordion-content",
+  })))), /*#__PURE__*/React.createElement("style", {
+    scoped: true
+  }, css), /*#__PURE__*/React.createElement("div", {
+    className: "accordion-content ContentSize",
     id: item.id,
     "aria-labelledby": item.id,
     "aria-hidden": activePanel !== item.id,
-    role: "region",
-    style: ContentStyle
-  }, /*#__PURE__*/React.createElement("p", {
-    style: ContentStyle
-  }, item.content), /*#__PURE__*/React.createElement("img", {
+    role: "region"
+  }, /*#__PURE__*/React.createElement("p", null, item.content), /*#__PURE__*/React.createElement("img", {
     className: "accordion-image",
     src: item.image,
     alt: item.alt
