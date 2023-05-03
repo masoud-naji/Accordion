@@ -73,6 +73,8 @@ function MyComponent() {
       AccordionWidth={AccordionWidth}
       AccordionHeight={AccordionHeight}
       ContentSize=[ContentSize]
+      onClick={}
+      ShowButton={true/false}
     />
   );
 }
@@ -93,7 +95,8 @@ function MyComponent() {
 | AccordionWidth   | css  /optional|  50rem     |    Accordion Width      |
 | AccordionHeight  | css  /optional|  30rem     |    Accordion Height     |
 | ContentSize      |Array /optional|[0,1,2,3,4]*|    Content font size    |
-
+| onClick          | onCLick       |            |    onClick ATC event    |
+| ShowButton       | boolean       |  false     |    show or hid button   |
 
 *[0,1,2,3,4]
 ```
@@ -124,7 +127,9 @@ export const test = () => {
       accordionData= {MockAccordion}
       AccordionWidth= "40rem"
       AccordionHeight= "30rem"
-      ContentSize= ["1rem", "1.2rem", "1.5rem", "1.8rem", "2rem"]
+      ContentSize={[".5rem", ".5rem", ".6rem", ".7rem", "1.1rem"]}
+      ShowButton= {false},
+      onClick= {(e) => console.log(e.id, e.title)},
     />
   );
 };

@@ -6,6 +6,8 @@ function UseImageAccordion({
   AccordionWidth,
   AccordionHeight,
   ContentSize,
+  onClick,
+  ShowButton,
 }) {
   const [activePanel, setActivePanel] = useState(null);
   const ContentSizeFont = ContentSize || [];
@@ -21,7 +23,7 @@ function UseImageAccordion({
   }
 
   const HeightStyle = `
-     @media (min-width: 480px) {
+     @media (min-width: 768px) {
       .AccHeight {
         height: ${AccordionHeight};
       }
@@ -63,7 +65,7 @@ function UseImageAccordion({
     <>
       <div className="wrapper" style={{ width: AccordionWidth }}>
         <style scoped>{HeightStyle}</style>
-        <div className="accordion AccHeight">
+        <div className="accordionImage AccHeight">
           {accordionData.map((item) => (
             <div
               key={item.id}
@@ -92,12 +94,26 @@ function UseImageAccordion({
               <style scoped>{css}</style>
               <div
                 className="accordion-content ContentSize"
+                style={{ height: `calc(${AccordionHeight} - 5rem)` }}
                 id={item.id}
                 aria-labelledby={item.id}
                 aria-hidden={activePanel !== item.id}
                 role="region"
               >
                 <p>{item.content}</p>
+
+                {ShowButton && (
+                  <button
+                    className="accordion-Link"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onClick({ id: item.id, title: item.title });
+                    }}
+                  >
+                    {item.title}
+                  </button>
+                )}
+
                 <img
                   className="accordion-image"
                   src={item.image}

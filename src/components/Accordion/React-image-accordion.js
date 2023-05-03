@@ -6,6 +6,8 @@ export const ReactImageAccordion = ({
   AccordionWidth,
   AccordionHeight,
   ContentSize,
+  onClick,
+  ShowButton,
 }) => {
   return (
     <UseImageAccordion
@@ -13,6 +15,8 @@ export const ReactImageAccordion = ({
       AccordionWidth={AccordionWidth}
       AccordionHeight={AccordionHeight}
       ContentSize={ContentSize}
+      onClick={onClick}
+      ShowButton={ShowButton}
     />
   );
 };
