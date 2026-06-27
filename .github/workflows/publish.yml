@@ -22,10 +22,14 @@ jobs:
           registry-url: https://registry.npmjs.org/
           cache: npm
 
+      - run: node --version
+
+      - run: npm --version
+
+      - run: npm config get registry
+
       - run: npm ci
 
       - run: npm run build
-
-      - run: npm --version
 
       - run: npm publish --provenance --access public
