@@ -21,7 +21,7 @@ npm i react-image-accordion
 To use the component in your React application, import it and pass the necessary props:
 
 ```jsx
-import ReactImageAccordion from 'react-image-accordion';
+import {ReactImageAccordion} from 'react-image-accordion';
 
 function MyComponent() {
   const accordionData = [
@@ -69,7 +69,12 @@ function MyComponent() {
 
   return (
   <ReactImageAccordion
-          accordionData={accordionData}
+      accordionData={accordionData}
+      AccordionWidth={AccordionWidth}
+      AccordionHeight={AccordionHeight}
+      ContentSize=[ContentSize]
+      onClick={}
+      ShowButton={true/false}
     />
   );
 }
@@ -87,9 +92,30 @@ function MyComponent() {
 |    Property      |     type      |  Default   |       Description       |
 | ---------------- |:-------------:|:----------:|:-----------------------:|
 | accordionData    | json data     |  json file |    Source File json     |
+| AccordionWidth   | css  /optional|  50rem     |    Accordion Width      |
+| AccordionHeight  | css  /optional|  30rem     |    Accordion Height     |
+| ContentSize      |Array /optional|[0,1,2,3,4]*|    Content font size    |
+| onClick          | onCLick       |            |    onClick ATC event    |
+| ShowButton       | boolean       |  false     |    show or hid button   |
 
-
-
+*[0,1,2,3,4]
+```
+"@media (max-width: 480px)": {
+  fontSize: ContentSize[0] || "0.65rem",
+},
+"@media (min-width: 481px) and (max-width: 768px)": {
+  fontSize: ContentSize[1] || "0.8rem",
+},
+"@media (min-width: 769px) and (max-width: 1024px)": {
+  fontSize: ContentSize[2] || "1rem",
+},
+"@media (min-width: 1025px) and (max-width: 1200px)": {
+  fontSize: ContentSize[3] || "1.2rem",
+},
+"@media (min-width: 1201px)": {
+  fontSize: ContentSize[4] || "1.5rem",
+},
+```
 
 ## Sample Code
 ```React Code
@@ -98,7 +124,12 @@ import { ReactImageAccordion } from "json-pretty-textarea";
 export const test = () => {
   return (
   <ReactImageAccordion
-          accordionData: {MockAccordion}
+      accordionData= {MockAccordion}
+      AccordionWidth= "40rem"
+      AccordionHeight= "30rem"
+      ContentSize={[".5rem", ".5rem", ".6rem", ".7rem", "1.1rem"]}
+      ShowButton= {false},
+      onClick= {(e) => console.log(e.id, e.title)},
     />
   );
 };

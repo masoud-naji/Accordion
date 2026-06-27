@@ -26,12 +26,12 @@ img {
 }
 
 .wrapper {
-  max-width: 50rem;
+  /* max-width: 50rem; */
   margin-inline: auto;
   padding-inline: 1rem;
 }
 
-.accordion {
+.accordionImage {
   --_button-size: 3rem;
   --_panel-padding: 0.75rem;
   --_panel-gap: 1rem;
@@ -42,13 +42,13 @@ img {
 }
 
 @media (min-width: 45em) {
-  .accordion {
+  .accordionImage {
     flex-direction: row;
     height: 30rem;
   }
 }
 
-.accordion * {
+.accordionImage * {
   margin: 0;
 }
 
@@ -118,6 +118,7 @@ img {
   transform: translateY(2rem);
   opacity: 0;
   margin-left: calc(var(--_button-size) + var(--_panel-gap));
+  color: rgb(255, 255, 255) !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -138,9 +139,28 @@ img {
   isolation: isolate;
   display: grid;
   align-items: center;
+  color: rgb(255, 255, 255) !important;
+}
+
+.accordion-panel:has([aria-expanded="false"]) .accordion-Link {
+  display: none;
 }
 
 @media (max-width: 44.999em) {
+  .accordion-panel {
+    width: 100%;
+  }
+
+  .accordion-trigger {
+    width: 100%;
+    height: var(--_button-size);
+  }
+
+  .accordion-title {
+    font-size: small;
+    width: 100%;
+    text-align: left;
+  }
   .accordion-title::after {
     content: "";
     position: absolute;
@@ -152,6 +172,21 @@ img {
     z-index: -1;
     border-radius: 100vw;
   }
+}
+
+.accordion-Link {
+  all: revert;
+  display: block;
+  position: absolute;
+  left: -0.1rem;
+  bottom: 0;
+  margin: 0.75rem;
+  width: 10rem;
+  height: var(--_button-size);
+  background: hsl(0 0% 0% /0.55);
+  border-radius: 100vw;
+  padding: 0.75rem;
+  font-weight: bolder;
 }
 
 .accordion-image {
