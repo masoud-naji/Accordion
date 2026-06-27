@@ -1,27 +1,22 @@
+![npm](https://img.shields.io/npm/v/react-image-accordion)
+![downloads](https://img.shields.io/npm/dm/react-image-accordion)
+![license](https://img.shields.io/npm/l/react-image-accordion)
 # React Image Accordion
 
-A simple and customizable React component that creates an image accordion with smooth animation, inspired by Kevin Powell's tutorial on [YouTube](https://www.youtube.com/watch?v=WJERnXiFFug&t=0s&ab_channel=KevinPowell).
-
-The image accordion is a modern design pattern that can be used to display images and accompanying information in an interactive and engaging way. This component makes it easy to incorporate this pattern into your React projects.
-
+A customizable and responsive React image accordion component with smooth animations.
 
 ## Installation
 
-Use the package manager [npm](https://www.npmjs.com/) to install react-image-accordion.
-
 ```bash
-npm i react-image-accordion
+npm install react-image-accordion
 ```
 
-
-
+---
 
 ## Usage
 
-To use the component in your React application, import it and pass the necessary props:
-
 ```jsx
-import {ReactImageAccordion} from 'react-image-accordion';
+import { ReactImageAccordion } from "react-image-accordion";
 
 function MyComponent() {
   const accordionData = [
@@ -29,123 +24,104 @@ function MyComponent() {
       id: 1,
       title: "Boating",
       image: "https://picsum.photos/400/600",
-      alt: "first panel image",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
-      svg: "aa (1).svg",
+      alt: "Boating",
+      content: "Lorem ipsum dolor sit amet.",
+      svg: "/icons/boat.svg",
     },
     {
       id: 2,
       title: "Fishing",
       image: "https://picsum.photos/400/600",
-      alt: "second panel image",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
-      svg: "aa (2).svg",
-    },
-    {
-      id: 3,
-      title: "Swimming",
-      image: "https://picsum.photos/400/600",
-      alt: "third panel image",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
-      svg: "aa (3).svg",
-    },
-    {
-      id: 4,
-      title: "Kayaking",
-      image: "https://picsum.photos/400/600",
-      alt: "fourth panel image",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
-      svg: "aa (4).svg",
-    },
-    {
-      id: 5,
-      title: "Scuba diving",
-      image: "https://picsum.photos/400/600",
-      alt: "fifth panel image",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe id numquam ab molestias sint beatae provident possimus doloribus autem repudiandae!",
-      svg: "aa (5).svg",
-    },
+      alt: "Fishing",
+      content: "Lorem ipsum dolor sit amet.",
+      svg: "/icons/fishing.svg",
+    }
   ];
 
   return (
-  <ReactImageAccordion
+    <ReactImageAccordion
       accordionData={accordionData}
-      AccordionWidth={AccordionWidth}
-      AccordionHeight={AccordionHeight}
-      ContentSize=[ContentSize]
-      onClick={}
-      ShowButton={true/false}
+      AccordionWidth="50rem"
+      AccordionHeight="30rem"
+      ContentSize={[
+        "0.65rem",
+        "0.8rem",
+        "1rem",
+        "1.2rem",
+        "1.5rem"
+      ]}
+      ShowButton={false}
+      onClick={(item) => console.log(item)}
     />
   );
 }
 
+export default MyComponent;
 ```
----
-
-![image](https://user-images.githubusercontent.com/63078848/235080658-86333445-4f13-44f4-9db1-6ef5266efea5.png)
-
----
-![image](https://user-images.githubusercontent.com/63078848/235080876-551d0dd6-5d49-44e3-a504-ee7e998d929c.png)
 
 ---
 
-|    Property      |     type      |  Default   |       Description       |
-| ---------------- |:-------------:|:----------:|:-----------------------:|
-| accordionData    | json data     |  json file |    Source File json     |
-| AccordionWidth   | css  /optional|  50rem     |    Accordion Width      |
-| AccordionHeight  | css  /optional|  30rem     |    Accordion Height     |
-| ContentSize      |Array /optional|[0,1,2,3,4]*|    Content font size    |
-| onClick          | onCLick       |            |    onClick ATC event    |
-| ShowButton       | boolean       |  false     |    show or hid button   |
+## Props
 
-*[0,1,2,3,4]
-```
-"@media (max-width: 480px)": {
-  fontSize: ContentSize[0] || "0.65rem",
-},
-"@media (min-width: 481px) and (max-width: 768px)": {
-  fontSize: ContentSize[1] || "0.8rem",
-},
-"@media (min-width: 769px) and (max-width: 1024px)": {
-  fontSize: ContentSize[2] || "1rem",
-},
-"@media (min-width: 1025px) and (max-width: 1200px)": {
-  fontSize: ContentSize[3] || "1.2rem",
-},
-"@media (min-width: 1201px)": {
-  fontSize: ContentSize[4] || "1.5rem",
-},
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| accordionData | Array | Required | Accordion data |
+| AccordionWidth | string | 50rem | Accordion width |
+| AccordionHeight | string | 30rem | Accordion height |
+| ContentSize | string[] | Responsive defaults | Font size for different breakpoints |
+| ShowButton | boolean | false | Show or hide action button |
+| onClick | function | - | Callback when an item is clicked |
+
+---
+
+## Responsive ContentSize
+
+```jsx
+[
+  "0.65rem", // Mobile
+  "0.8rem",  // Tablet
+  "1rem",    // Small Desktop
+  "1.2rem",  // Desktop
+  "1.5rem"   // Large Desktop
+]
 ```
 
-## Sample Code
-```React Code
-import MockDocument from "./MOCK_DATA.json";
-import { ReactImageAccordion } from "json-pretty-textarea";
-export const test = () => {
+---
+
+## Example
+
+```jsx
+import accordionData from "./accordionData.json";
+import { ReactImageAccordion } from "react-image-accordion";
+
+export default function App() {
   return (
-  <ReactImageAccordion
-      accordionData= {MockAccordion}
-      AccordionWidth= "40rem"
-      AccordionHeight= "30rem"
-      ContentSize={[".5rem", ".5rem", ".6rem", ".7rem", "1.1rem"]}
-      ShowButton= {false},
-      onClick= {(e) => console.log(e.id, e.title)},
+    <ReactImageAccordion
+      accordionData={accordionData}
+      AccordionWidth="40rem"
+      AccordionHeight="30rem"
+      ContentSize={[
+        ".5rem",
+        ".5rem",
+        ".6rem",
+        ".7rem",
+        "1.1rem"
+      ]}
+      ShowButton={false}
+      onClick={(item) => console.log(item)}
     />
   );
-};
+}
 ```
 
+---
 
-***
-## StoryBook Sample
-[StoryBook]https://react-image-accordion.netlify.app/
+## Storybook
 
+https://react-image-accordion.netlify.app/
 
-## Contributing
-For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
+---
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+
+MIT
