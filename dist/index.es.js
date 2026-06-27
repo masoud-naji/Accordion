@@ -1,47 +1,69 @@
 import React, { useState, useEffect } from 'react';
 
-function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
-  var insertAt = ref.insertAt;
-
-  if (!css || typeof document === 'undefined') { return; }
-
-  var head = document.head || document.getElementsByTagName('head')[0];
-  var style = document.createElement('style');
-  style.type = 'text/css';
-
-  if (insertAt === 'top') {
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild);
-    } else {
-      head.appendChild(style);
+function _iterableToArrayLimit(arr, i) {
+  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
+  if (null != _i) {
+    var _s,
+      _e,
+      _x,
+      _r,
+      _arr = [],
+      _n = !0,
+      _d = !1;
+    try {
+      if (_x = (_i = _i.call(arr)).next, 0 === i) {
+        if (Object(_i) !== _i) return;
+        _n = !1;
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0);
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return;
+      } finally {
+        if (_d) throw _e;
+      }
     }
-  } else {
-    head.appendChild(style);
-  }
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
+    return _arr;
   }
 }
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+  return arr2;
+}
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
 
-var css_248z = "*,\r\n*::before,\r\n*::after {\r\n  box-sizing: border-box;\r\n}\r\n\r\nhtml {\r\n  color-scheme: dark;\r\n}\r\n\r\nbody {\r\n  display: grid;\r\n  justify-content: center;\r\n  align-content: center;\r\n  min-height: 100vh;\r\n\r\n  margin: 0;\r\n  font-family: system-ui;\r\n  font-size: 1.125rem;\r\n  line-height: 1.6;\r\n}\r\n\r\nimg {\r\n  max-width: 100%;\r\n  display: block;\r\n}\r\n\r\n.wrapper {\r\n  /* max-width: 50rem; */\r\n  margin-inline: auto;\r\n  padding-inline: 1rem;\r\n}\r\n\r\n.accordionImage {\r\n  --_button-size: 3rem;\r\n  --_panel-padding: 0.75rem;\r\n  --_panel-gap: 1rem;\r\n\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 1rem;\r\n}\r\n\r\n@media (min-width: 45em) {\r\n  .accordionImage {\r\n    flex-direction: row;\r\n    height: 30rem;\r\n  }\r\n}\r\n\r\n.accordionImage * {\r\n  margin: 0;\r\n}\r\n\r\n.accordion-panel {\r\n  position: relative;\r\n  isolation: isolate;\r\n  flex-basis: calc((var(--_panel-padding) * 2) + var(--_button-size));\r\n  overflow: hidden;\r\n  padding: var(--_panel-padding);\r\n  padding-right: calc(var(--_panel-padding) * 4);\r\n  border-radius: calc(((var(--_panel-padding) * 2) + var(--_button-size)) / 2);\r\n  cursor: pointer;\r\n}\r\n\r\n@media (prefers-reduced-motion: no-preference) {\r\n  .accordion-panel {\r\n    transition: flex-basis 500ms, flex-grow 500ms;\r\n  }\r\n}\r\n\r\n.accordion-panel:nth-child(1) {\r\n  --_panel-color: red;\r\n}\r\n.accordion-panel:nth-child(2) {\r\n  --_panel-color: blue;\r\n}\r\n.accordion-panel:nth-child(3) {\r\n  --_panel-color: green;\r\n}\r\n.accordion-panel:nth-child(4) {\r\n  --_panel-color: yellow;\r\n}\r\n.accordion-panel:nth-child(5) {\r\n  --_panel-color: orange;\r\n}\r\n.accordion-panel:nth-child(6) {\r\n  --_panel-color: purple;\r\n}\r\n.accordion-panel:nth-child(7) {\r\n  --_panel-color: pink;\r\n}\r\n.accordion-panel:nth-child(8) {\r\n  --_panel-color: brown;\r\n}\r\n.accordion-panel:nth-child(9) {\r\n  --_panel-color: cyan;\r\n}\r\n.accordion-panel:nth-child(10) {\r\n  --_panel-color: magenta;\r\n}\r\n\r\n.accordion-panel:has([aria-expanded=\"true\"]) {\r\n  flex-basis: clamp(15rem, 40vh, 20rem);\r\n  flex-grow: 1;\r\n}\r\n\r\n.accordion-trigger {\r\n  outline: 0 !important;\r\n}\r\n\r\n.accordion-panel:focus-within {\r\n  outline: 3px solid var(--_panel-color);\r\n  outline-offset: 4px;\r\n}\r\n\r\n.accordion-content > p {\r\n  transform: translateY(2rem);\r\n  opacity: 0;\r\n  margin-left: calc(var(--_button-size) + var(--_panel-gap));\r\n  color: rgb(255, 255, 255) !important;\r\n}\r\n\r\n@media (prefers-reduced-motion: no-preference) {\r\n  .accordion-panel:has([aria-expanded=\"true\"]) .accordion-content > p {\r\n    transition: transform 500ms 500ms, opacity 500ms 500ms;\r\n  }\r\n}\r\n\r\n.accordion-panel:has([aria-expanded=\"true\"]) .accordion-content > p {\r\n  transform: translateY(0);\r\n  opacity: 1;\r\n}\r\n\r\n.accordion-title {\r\n  font-size: 1.5rem;\r\n  font-weight: 700;\r\n  position: relative;\r\n  isolation: isolate;\r\n  display: grid;\r\n  align-items: center;\r\n  color: rgb(255, 255, 255) !important;\r\n}\r\n\r\n.accordion-panel:has([aria-expanded=\"false\"]) .accordion-Link {\r\n  display: none;\r\n}\r\n\r\n@media (max-width: 44.999em) {\r\n  .accordion-panel {\r\n    width: 100%;\r\n  }\r\n\r\n  .accordion-trigger {\r\n    width: 100%;\r\n    height: var(--_button-size);\r\n  }\r\n\r\n  .accordion-title {\r\n    font-size: small;\r\n    width: 100%;\r\n    text-align: left;\r\n  }\r\n  .accordion-title::after {\r\n    content: \"\";\r\n    position: absolute;\r\n\r\n    left: calc((var(--_panel-gap) + var(--_button-size)) * -1);\r\n    width: calc(100% + (var(--_button-size) * 2));\r\n    height: var(--_button-size);\r\n    background: hsl(0 0% 0% /0.55);\r\n    z-index: -1;\r\n    border-radius: 100vw;\r\n  }\r\n}\r\n\r\n.accordion-Link {\r\n  all: revert;\r\n  display: block;\r\n  position: absolute;\r\n  left: -0.1rem;\r\n  bottom: 0;\r\n  margin: 0.75rem;\r\n  width: 10rem;\r\n  height: var(--_button-size);\r\n  background: hsl(0 0% 0% /0.55);\r\n  border-radius: 100vw;\r\n  padding: 0.75rem;\r\n  font-weight: bolder;\r\n}\r\n\r\n.accordion-image {\r\n  position: absolute;\r\n  inset: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  object-fit: cover;\r\n  z-index: -1;\r\n  transition: filer 500ms;\r\n}\r\n\r\n.accordion-panel:has([aria-expanded=\"true\"]) .accordion-image {\r\n  filter: brightness(0.5);\r\n}\r\n.accordion-trigger {\r\n  display: flex;\r\n  align-items: center;\r\n  flex-direction: row-reverse;\r\n  gap: var(--_panel-gap);\r\n  background: transparent;\r\n  border: 0;\r\n  padding: 0;\r\n}\r\n.accordion-icon {\r\n  fill: var(--_panel-color);\r\n  background: hsl(0 0% 0% /0.55);\r\n  width: var(--_button-size);\r\n  aspect-ratio: 1/1;\r\n  padding: 0.75rem;\r\n  border-radius: 50%;\r\n  z-index: 10;\r\n}\r\n";
-styleInject(css_248z);
-
-function UseImageAccordion({
-  accordionData,
-  AccordionWidth,
-  AccordionHeight,
-  ContentSize,
-  onClick,
-  ShowButton
-}) {
-  const [activePanel, setActivePanel] = useState(null);
-  const ContentSizeFont = ContentSize || [];
+function UseImageAccordion(_ref) {
+  var accordionData = _ref.accordionData,
+    AccordionWidth = _ref.AccordionWidth,
+    AccordionHeight = _ref.AccordionHeight,
+    ContentSize = _ref.ContentSize,
+    _onClick = _ref.onClick,
+    ShowButton = _ref.ShowButton;
+  var _useState = useState(null),
+    _useState2 = _slicedToArray(_useState, 2),
+    activePanel = _useState2[0],
+    setActivePanel = _useState2[1];
+  var ContentSizeFont = ContentSize || [];
   function toggleAccordion(panelToActivate) {
-    setActivePanel(prevPanel => {
+    setActivePanel(function (prevPanel) {
       if (prevPanel === panelToActivate) {
         return prevPanel;
       } else {
@@ -49,39 +71,9 @@ function UseImageAccordion({
       }
     });
   }
-  const HeightStyle = `
-     @media (min-width: 768px) {
-      .AccHeight {
-        height: ${AccordionHeight};
-      }
-    }`;
-  const css = `
-    @media (max-width: 480px) {
-      .ContentSize {
-        font-size: ${ContentSizeFont[0] || "0.65rem"};
-      }
-    }
-    @media (min-width: 481px) and (max-width: 768px) {
-      .ContentSize {
-        font-size: ${ContentSizeFont[1] || "0.8rem"};
-      }
-    }
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .ContentSize {
-        font-size: ${ContentSizeFont[2] || "1rem"};
-      }
-    }
-    @media (min-width: 1025px) and (max-width: 1200px) {
-      .ContentSize {
-        font-size: ${ContentSizeFont[3] || "1.2rem"};
-      }
-    }
-    @media (min-width: 1201px) {
-      .ContentSize {
-        font-size: ${ContentSizeFont[4] || "1.5rem"};
-      }
-    }`;
-  useEffect(() => {
+  var HeightStyle = "\n     @media (min-width: 768px) {\n      .AccHeight {\n        height: ".concat(AccordionHeight, ";\n      }\n    }");
+  var css = "\n    @media (max-width: 480px) {\n      .ContentSize {\n        font-size: ".concat(ContentSizeFont[0] || "0.65rem", ";\n      }\n    }\n    @media (min-width: 481px) and (max-width: 768px) {\n      .ContentSize {\n        font-size: ").concat(ContentSizeFont[1] || "0.8rem", ";\n      }\n    }\n    @media (min-width: 769px) and (max-width: 1024px) {\n      .ContentSize {\n        font-size: ").concat(ContentSizeFont[2] || "1rem", ";\n      }\n    }\n    @media (min-width: 1025px) and (max-width: 1200px) {\n      .ContentSize {\n        font-size: ").concat(ContentSizeFont[3] || "1.2rem", ";\n      }\n    }\n    @media (min-width: 1201px) {\n      .ContentSize {\n        font-size: ").concat(ContentSizeFont[4] || "1.5rem", ";\n      }\n    }");
+  useEffect(function () {
     setActivePanel(accordionData[0].id);
   }, []);
   if (!accordionData) return null;
@@ -94,61 +86,64 @@ function UseImageAccordion({
     scoped: true
   }, HeightStyle), /*#__PURE__*/React.createElement("div", {
     className: "accordionImage AccHeight"
-  }, accordionData.map(item => /*#__PURE__*/React.createElement("div", {
-    key: item.id,
-    className: "accordion-panel",
-    onClick: () => toggleAccordion(item.id)
-  }, /*#__PURE__*/React.createElement("h2", {
-    id: item.id
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "accordion-trigger",
-    "aria-controls": "panel1-content",
-    "aria-expanded": activePanel === item.id
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "accordion-title",
-    id: item.id
-  }, item.title), /*#__PURE__*/React.createElement("svg", {
-    "aria-hidden": "true",
-    className: "accordion-icon",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, /*#__PURE__*/React.createElement("image", {
-    href: item.svg
-  })))), /*#__PURE__*/React.createElement("style", {
-    scoped: true
-  }, css), /*#__PURE__*/React.createElement("div", {
-    className: "accordion-content ContentSize",
-    style: {
-      height: `calc(${AccordionHeight} - 5rem)`
-    },
-    id: item.id,
-    "aria-labelledby": item.id,
-    "aria-hidden": activePanel !== item.id,
-    role: "region"
-  }, /*#__PURE__*/React.createElement("p", null, item.content), ShowButton && /*#__PURE__*/React.createElement("button", {
-    className: "accordion-Link",
-    onClick: e => {
-      e.stopPropagation();
-      onClick({
-        id: item.id,
-        title: item.title
-      });
-    }
-  }, item.title), /*#__PURE__*/React.createElement("img", {
-    className: "accordion-image",
-    src: item.image,
-    alt: item.alt
-  })))))));
+  }, accordionData.map(function (item) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: item.id,
+      className: "accordion-panel",
+      onClick: function onClick() {
+        return toggleAccordion(item.id);
+      }
+    }, /*#__PURE__*/React.createElement("h2", {
+      id: item.id
+    }, /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      className: "accordion-trigger",
+      "aria-controls": "panel1-content",
+      "aria-expanded": activePanel === item.id
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "accordion-title",
+      id: item.id
+    }, item.title), /*#__PURE__*/React.createElement("svg", {
+      "aria-hidden": "true",
+      className: "accordion-icon",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, /*#__PURE__*/React.createElement("image", {
+      href: item.svg
+    })))), /*#__PURE__*/React.createElement("style", {
+      scoped: true
+    }, css), /*#__PURE__*/React.createElement("div", {
+      className: "accordion-content ContentSize",
+      style: {
+        height: "calc(".concat(AccordionHeight, " - 5rem)")
+      },
+      id: item.id,
+      "aria-labelledby": item.id,
+      "aria-hidden": activePanel !== item.id,
+      role: "region"
+    }, /*#__PURE__*/React.createElement("p", null, item.content), ShowButton && /*#__PURE__*/React.createElement("button", {
+      className: "accordion-Link",
+      onClick: function onClick(e) {
+        e.stopPropagation();
+        _onClick({
+          id: item.id,
+          title: item.title
+        });
+      }
+    }, item.title), /*#__PURE__*/React.createElement("img", {
+      className: "accordion-image",
+      src: item.image,
+      alt: item.alt
+    })));
+  }))));
 }
 
-const ReactImageAccordion = ({
-  accordionData,
-  AccordionWidth,
-  AccordionHeight,
-  ContentSize,
-  onClick,
-  ShowButton
-}) => {
+var ReactImageAccordion = function ReactImageAccordion(_ref) {
+  var accordionData = _ref.accordionData,
+    AccordionWidth = _ref.AccordionWidth,
+    AccordionHeight = _ref.AccordionHeight,
+    ContentSize = _ref.ContentSize,
+    onClick = _ref.onClick,
+    ShowButton = _ref.ShowButton;
   return /*#__PURE__*/React.createElement(UseImageAccordion, {
     accordionData: accordionData,
     AccordionWidth: AccordionWidth,

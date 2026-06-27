@@ -31,27 +31,27 @@ function UseImageAccordion({
 
   const css = `
     @media (max-width: 480px) {
-      .ContentSize {
+      .ContentSize p {
         font-size: ${ContentSizeFont[0] || "0.65rem"};
       }
     }
     @media (min-width: 481px) and (max-width: 768px) {
-      .ContentSize {
+      .ContentSize p {
         font-size: ${ContentSizeFont[1] || "0.8rem"};
       }
     }
     @media (min-width: 769px) and (max-width: 1024px) {
-      .ContentSize {
+      .ContentSize p {
         font-size: ${ContentSizeFont[2] || "1rem"};
       }
     }
     @media (min-width: 1025px) and (max-width: 1200px) {
-      .ContentSize {
+      .ContentSize p {
         font-size: ${ContentSizeFont[3] || "1.2rem"};
       }
     }
     @media (min-width: 1201px) {
-      .ContentSize {
+      .ContentSize p {
         font-size: ${ContentSizeFont[4] || "1.5rem"};
       }
     }`;

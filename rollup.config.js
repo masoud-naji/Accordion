@@ -1,39 +1,46 @@
-import babel from 'rollup-plugin-babel';
-import resolve from '@rollup/plugin-node-resolve';
-import external from 'rollup-plugin-peer-deps-external';
-import postcss from 'rollup-plugin-postcss';
-import localResolve from 'rollup-plugin-local-resolve';
-// import { terser } from "rollup-plugin-terser";
+import babel from "rollup-plugin-babel";
+import resolve from "@rollup/plugin-node-resolve";
+import external from "rollup-plugin-peer-deps-external";
+import postcss from "rollup-plugin-postcss";
+import localResolve from "rollup-plugin-local-resolve";
 
-export default [
+export default {
+  input: "src/index.js",
+
+  output: [
     {
-        input: 'src/index.js',
-        output: [
-            {
-            file: 'dist/index.js',
-            format: 'cjs',
-            },
-            {
-            file: 'dist/index.es.js',
-            format: 'es',
-            exports: 'named',
-            },
-        ],
-        plugins: [
-            postcss({
-                plugins: []
-            }),
-            babel({
-                exclude: 'node_modules/**',
-                presets: ['@babel/preset-react'],
-            }),
-            external(),
-            resolve(),
-            localResolve(),
-            // terser(),
-        ],
-         watch: {
-    include: "src/**",
-  },
-}
-];
+      file: "dist/index.js",
+      format: "cjs"
+    },
+    {
+      file: "dist/index.es.js",
+      format: "es",
+      exports: "named"
+    }
+  ],
+
+  plugins: [
+    external(),
+
+    resolve(),
+
+    localResolve(),
+
+    postcss({
+      extract: true,
+      minimize: true
+    }),
+
+    babel({
+      exclude: "node_modules/**",
+      presets: [
+        "@babel/preset-env",
+        "@babel/preset-react"
+      ]
+    })
+  ],
+
+  watch: {
+    include: "src/**"
+  }
+};
